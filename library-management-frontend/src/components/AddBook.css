@@ -1,0 +1,39 @@
+.add-book-container {
+  background-color: #f5f5f5; /* Light background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.add-book-container h2 {
+  color: #333; /* Dark text color */
+}
+
+.book-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.book-input:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none;
+}
+
+.add-button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

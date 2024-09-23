@@ -1,0 +1,114 @@
+/* src/components/AdminDashboard.css */
+
+.admin-dashboard {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Light background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-title {
+  color: #333; /* Dark text color */
+}
+
+h2 {
+  color: #555; /* Slightly lighter color for subheadings */
+  margin-bottom: 10px;
+}
+
+.success-message {
+  color: green;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.search-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px; /* Optional: adjust width */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none;
+}
+
+.book-list {
+  list-style-type: none; /* Remove default list styles */
+  padding: 0; /* Remove padding */
+}
+
+.book-item {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f8f9fa; /* Light background color */
+  border-radius: 4px;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between title and button */
+  align-items: center; /* Center vertically */
+}
+
+.book-item strong {
+  color: #333; /* Title color */
+}
+
+.admin-button {
+  padding: 10px 15px;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.admin-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.return-button {
+  padding: 5px 10px;
+  color: white;
+  background-color: #dc3545; /* Red for return button */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.return-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.borrowed-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+}
+
+.borrowed-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Light bottom border */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* src/components/AdminDashboard.css */
