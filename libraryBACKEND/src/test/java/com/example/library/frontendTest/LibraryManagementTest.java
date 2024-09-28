@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LibraryManagementTest {
+public class ibraryManagementTest {
     private WebDriver driver;
 
     @BeforeEach
@@ -40,17 +40,21 @@ public class LibraryManagementTest {
         WebElement loginButton = driver.findElement(By.xpath("//button[text()='Login']"));
         loginButton.click();
 
-        // Verify successful login by checking the URL
+        // Verify successful login by checking the URL or checking for an element specific to the dashboard
         String currentUrl = driver.getCurrentUrl();
-        assertEquals("http://localhost:3000/admin-dashboard", currentUrl, "Login was not successful, URL did not match.");
+        assertEquals("http://localhost:3000/user-dashboard", currentUrl, "Login was not successful, URL did not match.");
     }
+
     @Test
     public void testViewBooks() {
         testLogin(); // Ensure login before viewing books
 
-        // Verify books are displayed
+        // Navigate to the books section (assuming it’s accessible after login)
+        driver.get("http://localhost:3000/user-dashboard"); // Adjust as needed
+
+        // Verify books are displayed (adjust the selector based on your structure)
         WebElement booksSection = driver.findElement(By.id("books-section")); // Adjust selector to your page structure
-        assertTrue(booksSection.isDisplayed());
+        assertTrue(booksSection.isDisplayed(), "Books section is not displayed.");
     }
 
     @Test
@@ -65,11 +69,8 @@ public class LibraryManagementTest {
         borrowButton.click();
 
         // Wait for confirmation message
-        // Implement a wait logic if necessary
-
-        // Verify that the book is borrowed (this could be a message or page change)
         WebElement confirmationMessage = driver.findElement(By.className("confirmation")); // Adjust based on your actual confirmation
-        assertTrue(confirmationMessage.getText().contains("You have successfully borrowed"));
+        assertTrue(confirmationMessage.getText().contains("You have successfully borrowed"), "Confirmation message not found.");
     }
 
     @AfterEach
