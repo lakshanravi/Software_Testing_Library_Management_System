@@ -94,5 +94,66 @@ public class UserControllerTest {
                 .andExpect(status().isUnauthorized())
                 .andExpect(content().string("Invalid username or password!"));
     }
+    @Test
+    public void testLoginUser_EmptyUsername() throws Exception {
+        User user = new User();
+        user.setUsername(""); // Empty username
+        user.setPassword("testPassword");
+        user.setRole("admin");
+
+        // Simulate failed authentication due to empty username
+        when(userService.authenticateUser("", "testPassword"))
+                .thenReturn(Optional.empty());
+
+        // Perform the POST request for login and expect Unauthorized status
+        mockMvc.perform(post("/users/logine")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(user)))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().string("Invalid username or password!"));
+    }
+
+
+    @Test
+    public void testLoginUser_EmptyPassword() throws Exception {
+        User user = new User();
+        user.setUsername("testUsername");
+        user.setPassword(""); // Empty password
+        user.setRole("admin");
+
+        // Simulate failed authentication due to empty password
+        when(userService.authenticateUser("testUsername", ""))
+                .thenReturn(Optional.empty());
+
+        // Perform the POST request for login and expect Unauthorized status
+        mockMvc.perform(post("/users/logine")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(user)))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().string("Invalid username or password!"));
+    }
+
+
+    @Test
+    public void testLoginUser_EmptyUsernameAndPassword() throws Exception {
+        User user = new User();
+        user.setUsername(""); // Empty username
+        user.setPassword(""); // Empty password
+        user.setRole("admin");
+
+        // Simulate failed authentication due to both fields being empty
+        when(userService.authenticateUser("", ""))
+                .thenReturn(Optional.empty());
+
+        // Perform the POST request for login and expect Unauthorized status
+        mockMvc.perform(post("/users/logine")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(user)))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().string("Invalid username or password!"));
+    }
+
+
+
 
 }

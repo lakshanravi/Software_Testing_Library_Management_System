@@ -1,6 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { useAuth } from './AuthContext'; // Import the auth context
 import AdminDashboard from './components/AdminDashboard';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -8,10 +8,8 @@ import Navbar from './components/Navbar';
 import UserDashboard from './components/UserDashboard';
 import Contact from './components/contact';
 
-
 function App() {
-  const isLoggedIn = localStorage.getItem('username');
-  const role = localStorage.getItem('role');
+  const { isLoggedIn, role } = useAuth(); // Get auth state from context
 
   return (
     <Router>
